@@ -1,0 +1,143 @@
+body {
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  ul {
+    display: inline-block;
+    width: 400px;
+    list-style-type: none;
+    padding: 0px;
+    margin: 50px;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+  }
+  
+  li {
+    
+  }
+  
+  li:hover {
+    
+  }
+  
+  .list-item {
+    height: 32px;
+    border-bottom: 1px solid grey;
+    user-select: none;
+    overflow: hidden;
+    text-align: left;
+  }
+  
+  .list-item:hover {
+    background-color: grey;
+  }
+  
+  img {
+    height: 16px;
+    width: 16px;
+    margin: 8px;
+    display: inline-block;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  p {
+    height: 32px;
+    line-height: 32px;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  input {
+    display: block;
+    border: 0px;
+    border-bottom: 1px solid grey;
+    background-color: lightgrey;
+    height: 20px;
+    margin: 6px;
+    padding: 0px;
+  }
+  
+  input * {
+    display: block;
+  }
+  
+  div {
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+  }
+  
+  span {
+    height: 32px;
+    display: inline-block;
+    overflow: hidden;
+  }
+  
+  #list-header {
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    border-bottom: 1px solid grey;
+    user-select: none;
+    overflow: hidden;
+  }
+  
+  #create-button {
+    background-color: #2874A6;
+    color: white;
+    text-align: center;
+    user-select: none;
+    border-bottom: 1px solid grey;
+    overflow: hidden;
+  }
+  
+  #create-button:hover {
+    background-color: #1B4F72;
+  }
+  
+  #create-button p {
+    display: block;
+  }
+  
+  #create-menu {
+    height: 96px;
+    background-color: lightgrey;
+    color: white;
+    text-align: center;
+    user-select: none;
+    border-bottom: 1px solid grey;
+    overflow: hidden;
+  }
+  
+  #cancel {
+    text-align: center;
+    width: 50%;
+    background-color: #B03A2E;
+  }
+  
+  #cancel:hover {
+    background-color: #78281F;
+  }
+  
+  #save {
+    text-align: center;
+    width: 50%;
+    background-color: #239B56;
+  }
+  
+  #save:hover {
+    background-color: #186A3B;
+  }
+  
+  
