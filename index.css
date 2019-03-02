@@ -35,6 +35,7 @@ body {
   
   .list-item:hover {
     background-color: grey;
+    border: 1px solid white
   }
   
   img {
@@ -61,11 +62,11 @@ body {
   input {
     display: block;
     border: 0px;
-    border-bottom: 1px solid grey;
     background-color: lightgrey;
-    height: 20px;
-    margin: 6px;
-    padding: 0px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding-left: 32px;
   }
   
   input * {
@@ -84,7 +85,7 @@ body {
     overflow: hidden;
   }
   
-  #list-header {
+  #list-header-item {
     height: 64px;
     line-height: 64px;
     text-align: center;
@@ -93,7 +94,7 @@ body {
     overflow: hidden;
   }
   
-  #create-button {
+  #create-button-item {
     background-color: #2874A6;
     color: white;
     text-align: center;
@@ -102,17 +103,25 @@ body {
     overflow: hidden;
   }
   
-  #create-button:hover {
+  #create-button-item:hover {
     background-color: #1B4F72;
   }
   
-  #create-button p {
+  #create-button-item p {
     display: block;
   }
   
-  #create-menu {
-    height: 96px;
+  #create-new-item-item {
+    height: 32px;
     background-color: lightgrey;
+    color: black;
+    text-align: left;
+    user-select: none;
+    border-bottom: 1px solid grey;
+    overflow: hidden;
+  }
+
+  #cancel-and-save-item {
     color: white;
     text-align: center;
     user-select: none;
