@@ -4,24 +4,38 @@
   var defaultFavicon = 'http://s2.googleusercontent.com/s2/favicons?domain_url=https://caineandrebekah.com'
   var db = firebase.firestore();
 
-  var searches = window.location.search.split("?");
+  var rawSearches = window.location.search;  
+  searches = rawSearches.split("?");
   search = searches[1].split("&");
-  searchName = search[0].split("=");
+  searchName1 = search[0].split("=");
+  searchName2 = search[2].split("=");
+
+  console.log(searchName1);
+  console.log(searchName2);
+  
 
 // LOAD LISTS FROM THE DATABASE
 
   window.onload = function collectData() {
-    if (searchName[0] == "list") {
-
+    if (searchName1[0] == "list") {
       collection = db.collection("lists");
 
-      var result = collection.where("namecode", "==", searchName[1]);
-
-      result.get().then((snapshot) => {
-        snapshot.docs.forEach(doc => {
-          console.log(doc.id);
+      var result = collection.where("namecode", "==", searchName1[1]);
+      console.log(result);
+      result.get()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          console.log('No matching documents.');
+          return;
+        }
+    
+        snapshot.forEach(doc => {
+          console.log(doc.id, '=>', doc.data());
           fillList(doc.data());
-        })
+        });
+      })
+      .catch(err => {
+        console.log('Error getting documents', err);
       });
       
     }
@@ -104,30 +118,43 @@ function hideCreateNewItemItem() {
 
     collection = db.collection("lists");
 
-    var result = collection.where("namecode", "==", searchName[1]);
+    var result = collection.where("namecode", "==", searchName1[1]);
+    console.log(result);
+    result.get()
+    .then(snapshot => {
+      if (snapshot.empty) {
+        console.log('No matching documents.');
+        return;
+      }
+  
+      snapshot.forEach(doc => {
+        console.log(doc.id, '=>', doc.data());
+        docRef = db.collection('lists').doc(doc.id);
 
-    console.log(result.doc);
 
-    result.update({
-        lists: firebase.firestore.FieldValue.arrayUnion("greater_virginia")
-    }).then(function(docRef) {
+//////////////////////////
+
+      docRef.update({
+        "lists": firebase.firestore.FieldValue.arrayUnion("greater_virginia")
+      })
+      .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
-    })
-    .catch(function(error) {
+      })
+      .catch(function(error) {
       console.error("Error adding document: ", error);
-    });
+      });
+      }
 
-    // db.collection("lists").add(savedList)
-    // .then(function(docRef) {
-    //   console.log("Document written with ID: ", docRef.id);
-    // })
-    // .catch(function(error) {
-    //   console.error("Error adding document: ", error);
-    // });
+      )
+
+
+
+/////////////////////////////
+
     hideCreateNewItemItem();
     hideCancelAndSaveButtonItem();
     showCreateButtonItem();
-  }
+  })};
 
 // CREATING NEW LISTS
 
